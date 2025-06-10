@@ -1,6 +1,7 @@
 # 💰 Expense CLI
 
-A simple command-line interface (CLI) tool to help you track and manage your daily expenses.
+A simple command-line interface (CLI) tool to help you track and manage your daily expenses,
+From [Roadmap.sh](https://roadmap.sh/projects/expense-tracker).
 
 ---
 
@@ -10,20 +11,36 @@ This CLI tool allows you to easily **add**, **delete**, **list**, and view a **s
 
 ---
 
-## 💻 Installation
+### ⚠️ Important Note
 
-1.  **Save the Code**: Save the provided code into a file named `expense-cli.js`.
-2.  **Make it Executable**:
-    ```bash
-    chmod +x expense-cli.js
-    ```
-3.  **Run Globally (Recommended)**: To use `expense-cli` from any directory, create a symbolic link:
-    ```bash
-    sudo ln -s /path/to/your/expense-cli.js /usr/local/bin/expense-cli
-    ```
-    (Replace `/path/to/your/expense-cli.js` with the actual path where you saved the file.)
+You can run this CLI tool like:
 
----
+```bash
+node ./index.js <username>
+```
+
+But if you want to use it as a proper CLI command:
+
+1. Add this in your `package.json`:
+
+```json
+"bin": {
+    "github-activity": "./index.js"
+},
+"type": "module"
+```
+
+2. Then run:
+
+```bash
+npm link
+```
+
+Now you can use it globally:
+
+```bash
+github-activity Ibrahim-Rezq
+```
 
 ## 🛠️ Commands and Options
 
@@ -105,11 +122,3 @@ Total Expenses: $125.75
 │ 1701234567892 │ 24.75  │ Dinner with friends      │ Food      │ 2024-01-16T19:45:00.000Z   │
 └─────────────┴────────┴──────────────────────────┴───────────┴────────────────────────────┘
 ```
-
----
-
-## 🗄️ Data Storage
-
-Your expense data is stored in a JSON file named `expenses.json` in the directory where you execute the commands. If this file doesn't exist, the CLI will create it automatically when you add your first expense.
-
----
